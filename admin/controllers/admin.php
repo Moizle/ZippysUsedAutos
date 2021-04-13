@@ -8,7 +8,7 @@ switch($action)
             $_SESSION = array(); 
             session_destroy(); 
             $login_message = 'You have been logged out.';
-            echo '<h3 style=\'text-align:center\'>'.$login_message.'</h3>';
+            echo '<h3 style=\'text-align:center;\'>'.$login_message.'</h3>';
             include('view/login.php');
             break;
         case 'show_register':
@@ -27,7 +27,7 @@ switch($action)
                 include('../admin/controllers/vehicles.php');
             } else {
                 $login_message = 'Invalid Login / Login Required to view this page.';
-                echo '<h3 style=\'text-align:center\'>'.$login_message.'</h3>';
+                echo '<h3 style=\'text-align:center;\'>'.$login_message.'</h3>';
                 include('view/login.php');
             }
             break;
