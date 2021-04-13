@@ -1,0 +1,160 @@
+*
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button.add
+{
+    background-color: greenyellow;
+}
+
+button
+{
+    background-color: rgb(219, 52, 52);
+    font-size: 1em;
+}
+
+button:hover
+{
+    background-color: rgb(191, 199, 206);
+}
+
+button.sortButton
+{
+    background-color: greenyellow;
+}
+
+div.admin_links
+{
+    text-align: center;
+}
+
+div.user_links
+{
+    text-align: center;
+}
+
+body {
+    background-color: rgb(124, 124, 124);
+    font-size: 16px;
+}
+
+h3
+{
+    color: red;
+}
+
+h4
+{
+    font-size: 1.5em;
+}
+
+select.vehicle_options
+{
+    font-size: .75em;
+    background-color: rgb(191, 199, 206);
+}
+
+td
+{
+    font-size: 22px;
+} */
+
+.car_table
+{
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    word-wrap: break-word;
+  white-space: nowrap;
+}
+input
+{
+    background-color: rgb(191, 199, 206);
+    border: none;
+    border: 2px solid black;
+}
+
+label
+{
+    font-size: 1.5em;
+}
+
+h1, main
+{
+    text-align: center;
+}
+
+table.car_table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    background: rgb(124, 124, 124);
+}
+table.car_table thead th {
+    padding: 15px 10px;
+    font-size: 15px;
+    color: #797777;
+    border-bottom: 2px solid #2f2b68;
+    font-weight: normal;
+    word-wrap: break-word;
+    white-space: nowrap;
+    font-weight: 500;
+    text-align: center;
+    background: #333;
+}
+table.car_table tbody td {
+    padding: 15px 10px;
+    font-size: 14px;
+    color: #858585;
+    font-weight: normal;
+    border-bottom: 1px solid #dcdcdc;
+}
+table.car_table tbody td > a > a {
+    color: #333;
+    text-decoration: none;
+}
+table.car_table tbody tr:nth-child(odd){
+    background: #fff;
+}
+table.car_table tbody tr:nth-child(even) {
+    background: #f6f6f6;
+}
+@media screen and (max-width: 460px) 
+{
+
+*{
+    font-size: .75em;
+}
+}
+@media screen and (max-width: 767px) {
+    *
+    {
+        font-size: 1em;
+    }
+
+    table.car_table caption {
+        background-image: none;
+    }
+
+    table.car_table tbody td {
+
+        padding: 10px;
+        text-align: left;
+    }
+    table.car_table tbody td:before:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: flex;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 767px) {
+    table.car_table thead th {
+    padding: 10px;
+    }
+    table.car_table tbody td {
+        padding: 10px;
+    }
+}
