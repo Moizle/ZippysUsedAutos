@@ -42,7 +42,7 @@ switch($action)
                 $errors = valid_registration($username,$password,$confirm_password);
                 foreach ($errors as $error)
                 {
-                echo '<ul>'.$error.'</ul><br/><br/>';
+                echo '<h3 style=\'text-align:center;\'>'.$error.'</h3><br/>';
                 }
                 include('view/register.php');
             } else{
