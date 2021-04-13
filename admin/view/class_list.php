@@ -29,7 +29,7 @@
         <input type="hidden" name="action" value="add_class">
         <label for="add_class">Class:</label>
         <input id="add_class" type="text" name="new_class" required>
-        <button class="add" type="submit">Add Type</button>
+        <button class="add" type="submit">Add Class</button>
     </form>
 </section>
 
