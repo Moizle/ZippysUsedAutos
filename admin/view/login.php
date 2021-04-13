@@ -24,3 +24,7 @@
     <br><br>
     <button type="submit">Login</button>
 </form>
+<footer>
+    <p>© <?php echo date("Y");?> Zippy's Used Autos</p>
+    <p>Website by Moiz</p>
+</footer>
