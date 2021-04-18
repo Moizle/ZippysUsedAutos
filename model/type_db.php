@@ -1,7 +1,9 @@
 <?php
-    function get_all_types()
+class TypeDB {
+
+    public static function get_all_types()
     {
-        global $db;
+        $db = Database::getDB();
         $query = 'SELECT * FROM types';
         $statement = $db->prepare($query);
         $statement->execute();
@@ -10,9 +12,9 @@
         return $types;
     }
 
-    function get_car_by_type($type_id, $sort)
+    public static function get_car_by_type($type_id, $sort)
     {
-        global $db;
+        $db = Database::getDB();
         if($sort == 'year')
         {
             $query = 'SELECT V.carID, V.year, V.model, V.price, T.type, M.make, C.class FROM vehicles V 
@@ -44,9 +46,9 @@
         }
     }
 
-    function delete_type($type_id) 
+    public static function delete_type($type_id) 
     {
-        global $db;
+        $db = Database::getDB();
         $query = 'DELETE FROM types
                 WHERE type_id = :type_id';
         $statement = $db->prepare($query);
@@ -55,9 +57,9 @@
         $statement->closeCursor();
     }
 
-    function add_type($type) 
+    public static function add_type($type) 
     {
-        global $db;
+        $db = Database::getDB();
         $query = 'INSERT INTO types (type)
                 VALUES (:type)';
         $statement = $db->prepare($query);
@@ -67,3 +69,4 @@
     }
 
 
+}

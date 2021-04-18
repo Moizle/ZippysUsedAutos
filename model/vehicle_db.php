@@ -1,8 +1,10 @@
 <?php
 
-    function get_all_cars($sort)
+class VehicleDB {
+
+    public static function get_all_cars($sort)
     {
-        global $db;
+        $db = Database::getDB();
         if($sort == 'year')
         {
             $query = 'SELECT V.carID, V.year, V.model, V.price, T.type, M.make, C.class FROM vehicles V 
@@ -30,9 +32,9 @@
         }
     }
 
-    function add_car($class_id,$type_id,$make_id,$year,$model,$price)
+    public static function add_car($class_id,$type_id,$make_id,$year,$model,$price)
     {
-        global $db;
+        $db = Database::getDB();
         $query = 'INSERT INTO vehicles (class_id, type_id, make_id, year, model, price)
                     VALUES (:class_id, :type_id, :make_id, :year, :model, :price)';
         $statement = $db->prepare($query);
@@ -46,9 +48,9 @@
         $statement->closeCursor();
     }
 
-    function delete_car($carID) 
+    public static function delete_car($carID) 
     {
-        global $db;
+        $db = Database::getDB();
         $query = 'DELETE FROM vehicles
                     WHERE carID = :carID';
         $statement = $db->prepare($query);
@@ -56,3 +58,4 @@
         $statement->execute();
         $statement->closeCursor();
     }
+}

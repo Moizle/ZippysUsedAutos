@@ -17,7 +17,6 @@ session_start();
 
     $sort = filter_input(INPUT_POST, 'sort', FILTER_SANITIZE_STRING);
     
-    
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if (!$action)
@@ -41,31 +40,31 @@ session_start();
         case 'show_cars':
             if($make_id)
             {
-                $cars = get_car_by_make($make_id,$sort);
-                $types = get_all_types(); 
-                $makes = get_all_makes(); 
-                $classes = get_all_classes(); 
+                $cars = MakeDB::get_car_by_make($make_id,$sort);
+                $types = TypeDB::get_all_types(); 
+                $makes = MakeDB::get_all_makes(); 
+                $classes = ClasDB::get_all_classes(); 
                 include('view/vehicle_list.php');
             } else if ($type_id)
             {
-                $cars = get_car_by_type($type_id,$sort);
-                $types = get_all_types(); 
-                $makes = get_all_makes(); 
-                $classes = get_all_classes(); 
+                $cars = TypeDB::get_car_by_type($type_id,$sort);
+                $types = TypeDB::get_all_types(); 
+                $makes = MakeDB::get_all_makes(); 
+                $classes = ClassDB::get_all_classes(); 
                 include('view/vehicle_list.php');
             } else if ($class_id)
             {
-                $cars = get_car_by_class($class_id,$sort);
-                $types = get_all_types(); 
-                $makes = get_all_makes(); 
-                $classes = get_all_classes(); 
+                $cars = ClassDB::get_car_by_class($class_id,$sort);
+                $types = TypeDB::get_all_types(); 
+                $makes = MakeDB::get_all_makes(); 
+                $classes = ClassDB::get_all_classes(); 
                 include('view/vehicle_list.php');
             } else 
             {
-                $cars = get_all_cars($sort);
-                $types = get_all_types(); 
-                $makes = get_all_makes(); 
-                $classes = get_all_classes(); 
+                $cars = VehicleDB::get_all_cars($sort);
+                $types = TypeDB::get_all_types(); 
+                $makes = MakeDB::get_all_makes(); 
+                $classes = ClassDB::get_all_classes(); 
                 include('view/vehicle_list.php');
             }
             break;

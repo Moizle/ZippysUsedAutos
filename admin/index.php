@@ -12,9 +12,9 @@
     $type_id = filter_input(INPUT_POST, 'type_id', FILTER_VALIDATE_INT);
     $class_id = filter_input(INPUT_POST, 'class_id', FILTER_VALIDATE_INT);
     $make_id = filter_input(INPUT_POST, 'make_id', FILTER_VALIDATE_INT);
-    $types = get_all_types(); 
-    $makes = get_all_makes(); 
-    $classes = get_all_classes(); 
+    $types = TypeDB::get_all_types(); 
+    $makes = MakeDB::get_all_makes(); 
+    $classes = ClassDB::get_all_classes(); 
 
 
     $sort = filter_input(INPUT_POST, 'sort', FILTER_SANITIZE_STRING);

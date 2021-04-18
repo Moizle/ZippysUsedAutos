@@ -20,8 +20,8 @@ switch($action)
         case 'login':
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            is_valid_login($username,$password);
-            if(is_valid_login($username,$password))
+            AdminDB::is_valid_login($username,$password);
+            if(AdminDB::is_valid_login($username,$password))
             {
                 $_SESSION['is_valid_admin'] = true;
                 include('../admin/controllers/vehicles.php');
@@ -36,17 +36,20 @@ switch($action)
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
             $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING); 
             include('util/valid_register.php');
-            valid_registration($username, $password, $confirm_password);
-            if(valid_registration($username, $password, $confirm_password))
+            ValidRegister::valid_registration($username, $password, $confirm_password);
+            if (AdminDB::username_exists($username)) {
+                array_push($errors, "The username you entered is already taken.");
+            }
+            if(ValidRegister::valid_registration($username, $password, $confirm_password))
             {
-                $errors = valid_registration($username,$password,$confirm_password);
+                $errors = ValidRegister::valid_registration($username,$password,$confirm_password);
                 foreach ($errors as $error)
                 {
                 echo '<h3 style=\'text-align:center;\'>'.$error.'</h3><br/>';
                 }
                 include('view/register.php');
             } else{
-                add_admin($username,$password);
+                AdminDB::add_admin($username,$password);
                 $_SESSION['is_valid_admin'] = true;
                 include('../admin/controllers/vehicles.php');
             }
